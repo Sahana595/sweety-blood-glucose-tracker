@@ -242,3 +242,151 @@ Password: Demo@12345
 
 The seed creates a demo user with sample glucose readings.
 
+
+
+\## Database Setup
+
+
+
+Create a PostgreSQL database named `sweety`.
+
+
+
+Create the `users` table:
+
+
+
+CREATE TABLE users (
+
+&#x20;   id SERIAL PRIMARY KEY,
+
+&#x20;   name VARCHAR(100) NOT NULL,
+
+&#x20;   email VARCHAR(255) UNIQUE NOT NULL,
+
+&#x20;   password VARCHAR(255) NOT NULL,
+
+&#x20;   created\_at TIMESTAMP DEFAULT CURRENT\_TIMESTAMP
+
+);
+
+
+
+Create the `readings` table:
+
+
+
+CREATE TABLE readings (
+
+&#x20;   id SERIAL PRIMARY KEY,
+
+&#x20;   user\_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+
+&#x20;   reading\_date DATE NOT NULL,
+
+&#x20;   time\_slot VARCHAR(30) NOT NULL,
+
+&#x20;   value INTEGER NOT NULL,
+
+&#x20;   created\_at TIMESTAMP DEFAULT CURRENT\_TIMESTAMP,
+
+&#x20;   updated\_at TIMESTAMP DEFAULT CURRENT\_TIMESTAMP,
+
+
+
+&#x20;   CONSTRAINT unique\_user\_date\_slot
+
+&#x20;       UNIQUE (user\_id, reading\_date, time\_slot),
+
+
+
+&#x20;   CONSTRAINT valid\_time\_slot
+
+&#x20;       CHECK (
+
+&#x20;           time\_slot IN (
+
+&#x20;               'Morning',
+
+&#x20;               'After breakfast',
+
+&#x20;               'After lunch',
+
+&#x20;               'After dinner'
+
+&#x20;           )
+
+&#x20;       ),
+
+
+
+&#x20;   CONSTRAINT valid\_glucose\_value
+
+&#x20;       CHECK (value >= 40 AND value <= 600)
+
+&#x20;   );
+
+
+
+\## Testing
+
+
+
+The application was manually tested for:
+
+
+
+\- Signup and login
+
+\- JWT authentication
+
+\- Adding glucose readings
+
+\- Viewing readings
+
+\- Editing readings
+
+\- Deleting readings
+
+\- Required-field validation
+
+\- Whole-number validation
+
+\- 40–600 mg/dl validation
+
+\- Future-date validation
+
+\- Duplicate time-slot prevention
+
+\- Daily reports
+
+\- Month-to-date reports
+
+\- Previous-month reports
+
+\- Logout
+
+\- User-specific reading access
+
+
+
+\## Seed Demo Data
+
+
+
+From the `server` folder:
+
+
+
+npm run seed
+
+
+
+Demo account:
+
+
+
+Email: demo@example.com
+
+Password: Demo@12345
+
