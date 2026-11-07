@@ -62,17 +62,35 @@ function Reports() {
   }, []);
 
   const ReportStats = ({ report }) => (
-    <div>
-      <p>Count: {report.count}</p>
-      <p>Highest: {report.highest ?? "N/A"}</p>
-      <p>Lowest: {report.lowest ?? "N/A"}</p>
-      <p>Average: {report.average ?? "N/A"}</p>
+  <div className="report-stats">
+    <div className="report-stat">
+      <span>Count</span>
+      <strong>{report.count}</strong>
     </div>
-  );
+
+    <div className="report-stat">
+      <span>Highest</span>
+      <strong>{report.highest ?? "N/A"}</strong>
+    </div>
+
+    <div className="report-stat">
+      <span>Lowest</span>
+      <strong>{report.lowest ?? "N/A"}</strong>
+    </div>
+
+    <div className="report-stat">
+      <span>Average</span>
+      <strong>{report.average ?? "N/A"}</strong>
+    </div>
+  </div>
+);
 
   return (
     <div>
-      <h2>Reports</h2>
+      <h2 className="section-title">Glucose Reports</h2>
+<p className="section-description">
+  Track your blood glucose trends and daily statistics.
+</p>
 
       {message && <p>{message}</p>}
 

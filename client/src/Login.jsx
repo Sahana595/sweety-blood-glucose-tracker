@@ -72,7 +72,10 @@ function Login() {
 
   return (
     <div className="card">
-      <h1>Sweety</h1>
+      <h1 className="brand">
+  <span className="brand-name">Sweety</span>
+  
+</h1>
 
       <p>Blood Glucose Tracker</p>
 
@@ -102,7 +105,11 @@ function Login() {
         </button>
       </form>
 
-      {message && <p className="error">{message}</p>}
+      {message && (
+  <p className={message.includes("successful") ? "success" : "error"}>
+    {message}
+  </p>
+)}
 
       <hr />
 

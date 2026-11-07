@@ -82,7 +82,10 @@ function AddReading({ onReadingAdded }) {
 
   return (
     <div>
-      <h2>Add Blood Glucose Reading</h2>
+      <h2 className="section-title">Add Blood Glucose Reading</h2>
+<p className="section-description">
+  Record your blood glucose level for today or a previous date.
+</p>
 
       <form onSubmit={handleSubmit}>
 

@@ -4,70 +4,319 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f7fb;
-  color: #222;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
 }
 
 button {
-  padding: 8px 14px;
+  padding: 10px 18px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   background: #2563eb;
   color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
 }
 
 button:hover {
-  opacity: 0.9;
+  background: #1d4ed8;
+  transform: translateY(-1px);
 }
 
 input,
 select {
-  padding: 9px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  width: 100%;
+  max-width: 420px;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  outline: none;
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
+input:focus,
+select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 35px 20px;
+}
+
+.card {
   background: white;
+  padding: 28px;
+  margin-bottom: 22px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+}
+
+.brand {
+  margin: 0 0 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.brand-name {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #2563eb;
+}
+
+.brand-subtitle {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.card h1 {
+  color: #1e40af;
+}
+
+.card h2 {
+  color: #334155;
+  margin-top: 0;
+}
+
+.card h3 {
+  color: #475569;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #475569;
+}
+
+form {
+  margin-top: 15px;
+}
+
+p {
+  line-height: 1.6;
+  color: #475569;
+}
+
+.success {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.error {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 28px 0;
+}
+
+/* Tables */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 th {
   background: #2563eb;
   color: white;
+  font-weight: 600;
 }
 
 th,
 td {
-  padding: 10px;
+  padding: 13px 14px;
   text-align: left;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 tr:nth-child(even) {
   background: #f8fafc;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 20px;
+tr:hover {
+  background: #eff6ff;
 }
 
-.card {
-  background: white;
-  padding: 20px;
-  margin-bottom: 20px;
+/* Mobile */
+
+@media (max-width: 700px) {
+  .container {
+    padding: 18px 10px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .brand-name {
+    font-size: 34px;
+  }
+
+  .brand-subtitle {
+    font-size: 17px;
+  }
+
+  input,
+  select {
+    max-width: 100%;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th,
+  td {
+    padding: 9px;
+  }
+}
+
+.dashboard-title {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dashboard-title span {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+.dashboard-title small {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logout-button {
+  background: #dc2626;
+  white-space: nowrap;
+}
+
+.logout-button:hover {
+  background: #b91c1c;
+}
+
+@media (max-width: 700px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.section-title {
+  margin-bottom: 5px;
+  color: #1e40af;
+}
+
+.section-description {
+  color: #64748b;
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+
+.report-stat {
+  display: inline-block;
+  min-width: 140px;
+  margin: 8px 10px 8px 0;
+  padding: 15px;
+  background: #eff6ff;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #dbeafe;
 }
 
-.error {
-  color: #dc2626;
+.report-stat strong {
+  display: block;
+  font-size: 22px;
+  color: #1d4ed8;
 }
 
-.success {
-  color: #16a34a;
+.report-stat span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.report-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.report-stat {
+  flex: 1;
+  min-width: 130px;
+  padding: 18px;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.report-stat span {
+  display: block;
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.report-stat strong {
+  display: block;
+  color: #1d4ed8;
+  font-size: 24px;
+}
+
+.action-button {
+  padding: 7px 12px;
+  font-size: 13px;
+  margin-right: 5px;
+}
+
+.edit-button {
+  background: #2563eb;
+}
+
+.delete-button {
+  background: #dc2626;
+}
+
+.edit-button:hover {
+  background: #1d4ed8;
+}
+
+.delete-button:hover {
+  background: #b91c1c;
 }

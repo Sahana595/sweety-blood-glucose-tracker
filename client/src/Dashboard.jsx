@@ -90,16 +90,20 @@ function Dashboard({ onLogout }) {
 
   return (
     <div>
-      <div className="card">
-        <h1>Sweety - Blood Glucose Tracker</h1>
+     <div className="card dashboard-header">
+  <div>
+    <h1 className="dashboard-title">
+      <span>Sweety</span>
+      <small>Blood Glucose Tracker</small>
+    </h1>
 
-        <p>Manage your blood glucose readings</p>
+    <p>Manage your blood glucose readings</p>
+  </div>
 
-        <button onClick={handleLogout}>
-          Logout
-        </button>
-      </div>
-
+  <button className="logout-button" onClick={handleLogout}>
+    Logout
+  </button>
+</div>
       <div className="card">
         <button onClick={() => setShowReports(!showReports)}>
           {showReports ? "Hide Reports" : "View Reports"}
@@ -117,7 +121,10 @@ function Dashboard({ onLogout }) {
       </div>
 
       <div className="card">
-        <h2>My Readings</h2>
+        <h2 className="section-title">My Readings</h2>
+<p className="section-description">
+  View and manage your blood glucose readings.
+</p>
 
         {message && <p className="success">{message}</p>}
 
@@ -146,19 +153,19 @@ function Dashboard({ onLogout }) {
                   <td>{reading.value}</td>
 
                   <td>
-                    <button
-                      onClick={() => setEditingReading(reading)}
-                    >
-                      Edit
-                    </button>
+                   <button
+  className="action-button edit-button"
+  onClick={() => setEditingReading(reading)}
+>
+  Edit
+</button>
 
-                    {" "}
-
-                    <button
-                      onClick={() => deleteReading(reading.id)}
-                    >
-                      Delete
-                    </button>
+<button
+  className="action-button delete-button"
+  onClick={() => deleteReading(reading.id)}
+>
+  Delete
+</button>
                   </td>
                 </tr>
               ))}
