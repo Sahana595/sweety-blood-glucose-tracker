@@ -390,3 +390,21 @@ Email: demo@example.com
 
 Password: Demo@12345
 
+## Notes
+
+### Assumptions
+- Each user can record up to 4 glucose readings per day.
+- Each reading is associated with a date and one of four time slots: Morning, After breakfast, After lunch, or After dinner.
+- Glucose values are restricted to the range of 40–600 mg/dL.
+- A user cannot add more than one reading for the same date and time slot.
+- PostgreSQL is used as the database for storing users and glucose readings.
+- JWT is used for user authentication.
+
+### What I Would Improve With More Time
+- Add pagination for the readings list.
+- Add charts to visualize glucose readings over time.
+- Improve the UI/UX for better usability on mobile and desktop.
+- Add more comprehensive frontend and backend tests.
+- Add Docker support for easier setup and deployment.
+- Add stronger validation and error handling throughout the application.
+
